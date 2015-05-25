@@ -20,6 +20,11 @@ import javax.persistence.TemporalType;
 @Table(name = "SUBJECT")
 public class Subject implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1295215197297623108L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -34,7 +39,7 @@ public class Subject implements Serializable {
 	private String version;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_PRODUCT")
+	@JoinColumn(name="IDPRODUCT")
 	private Product produit;
 	
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY)
@@ -50,6 +55,13 @@ public class Subject implements Serializable {
 
 	public Subject() {
 		super();
+	}
+	
+	public void setSubject(Subject s){
+		this.description = s.getDescription();
+		this.date_study = s.getDate_study();
+		this.version = s.getVersion();
+		this.version_study = s.getVersion_study();
 	}
 
 	public long getId() {
@@ -68,20 +80,20 @@ public class Subject implements Serializable {
 		this.description = description;
 	}
 
-	public String getVersion_etude() {
+	public String getVersion_study() {
 		return version_study;
 	}
 
-	public void setVersion_etude(String version_etude) {
-		this.version_study = version_etude;
+	public void setVersion_study(String version_study) {
+		this.version_study = version_study;
 	}
 
-	public Date getDate_etude() {
+	public Date getDate_study() {
 		return date_study;
 	}
 
-	public void setDate_etude(Date date_etude) {
-		this.date_study = date_etude;
+	public void setDate_study(Date date_study) {
+		this.date_study = date_study;
 	}
 
 	public String getVersion() {
@@ -108,5 +120,6 @@ public class Subject implements Serializable {
 		this.estimation = estimation;
 	}
 
+	
 
 }

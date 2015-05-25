@@ -3,7 +3,9 @@ package com.linedata.projmng.commons.model;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,12 +18,23 @@ import javax.persistence.Table;
 @Table(name="PRODUCT")
 public class Product implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5199154326155069508L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String label;
-	@OneToMany
+	private String version;
+	@OneToMany(mappedBy="produit",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private Collection<Subject> subjects;
+	
+	
+	public void setProduct(Product p){
+		this.label = p.getLabel();
+		this.version = p.getVersion();
+	}
 	
 	public long getId() {
 		return id;
@@ -40,6 +53,12 @@ public class Product implements Serializable{
 	}
 	public void setSubjects(Collection<Subject> subjects) {
 		this.subjects = subjects;
+	}
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
 	}
 	
 }

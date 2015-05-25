@@ -1,20 +1,21 @@
 package com.linedata.projmng.commons.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="COMPLEXITY")
 public class Complexity implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7702923172852464969L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

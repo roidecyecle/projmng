@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- Appenders -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%X{UserCode} [%d] %5p [%F:%L] -%m%n" />
+		</layout>
+	</appender>
+	<appender name="ASYNC_APPENDER" class="org.apache.log4j.AsyncAppender" />
+	<logger name="org.hibernate">
+		<level value="fatal" />
+		<appender-ref ref="ASYNC_APPENDER" />
+	</logger>
+	<logger name="org.springframework">
+		<level value="info" />
+		<appender-ref ref="ASYNC_APPENDER" />
+	</logger>
+	<root>
+		<priority value="info" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</log4j:configuration>

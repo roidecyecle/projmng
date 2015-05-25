@@ -35,7 +35,7 @@ public abstract class test {
 	 * @param args
 	 */
 	public static void main(String[] args) {	
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring.xml");
 
 		ProductDao productDao = (ProductDao) ctx.getBean("productdao");
 		SubjectDao subjectDao = (SubjectDao) ctx.getBean("subjectdao");
@@ -101,11 +101,8 @@ public abstract class test {
 		ArrayList<UnitOfWork> list = (ArrayList<UnitOfWork>) estimationDao.getAllUnits(est2.getId());
 		ArrayList<Estimation> list2 = (ArrayList<Estimation>) estimationDao.getAllEstimationByLabel("");
 		
-		for(int i=0; i<=list.size();i++){
-			System.out.println(list2.get(i).getlabel());
-		}
 		
-		System.out.println(estimationDao.getEstimation(est2.getId()).getUnitsOfWork().size());
+		
 		
 
 		Author a1 = new Author();
@@ -114,7 +111,7 @@ public abstract class test {
 		authorDao.addAuthor(a1);
 		
 		est1.setAuthor(a1);
-		est1.setLibelle("EPIC 2");
+		est1.setLabel("EPIC 2");
 		estimationDao.updateEstimation(est1);
 		
 		
@@ -124,13 +121,13 @@ public abstract class test {
 		
 		System.out.println("unite est "+unit.getLabel());
 		
-		unitOfWorkDao.deleteUnitOfWork(unit2.getId());
+		
 		
 		
 		
 		System.out.println("Abaque est "+abacusDao.getAbacusElements(abac2.getIdAbacus()).getConplexity().getLabel());
 
-		abacusDao.removeElement(abac2.getIdAbacus());
+		
 		
 	}
 

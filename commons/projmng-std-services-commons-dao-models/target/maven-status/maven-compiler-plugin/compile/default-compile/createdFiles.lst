@@ -1,0 +1,10 @@
+com\linedata\projmng\commons\model\ActionType.class
+com\linedata\projmng\commons\model\Abacus.class
+com\linedata\projmng\commons\model\Subject.class
+com\linedata\projmng\commons\model\Component.class
+com\linedata\projmng\commons\model\Author.class
+com\linedata\projmng\commons\model\Product.class
+com\linedata\projmng\commons\model\Estimation.class
+com\linedata\projmng\commons\model\Complexity.class
+com\linedata\projmng\commons\model\Status.class
+com\linedata\projmng\commons\model\UnitOfWork.class

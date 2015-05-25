@@ -66,6 +66,7 @@
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" sourcepath="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/linedata/projmng/std/services/commons/service-api/projmng-std-services-commons-service-api/1.0.0-SNAPSHOT/projmng-std-services-commons-service-api-1.0.0-SNAPSHOT.jar" sourcepath="M2_REPO/com/linedata/projmng/std/services/commons/service-api/projmng-std-services-commons-service-api/1.0.0-SNAPSHOT/projmng-std-services-commons-service-api-1.0.0-SNAPSHOT-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate/3.2.1.ga/hibernate-3.2.1.ga.jar" sourcepath="M2_REPO/org/hibernate/hibernate/3.2.1.ga/hibernate-3.2.1.ga-sources.jar">
     <attributes>
       <attribute value="jar:file:/C:/dev/maven2/repository/org/hibernate/hibernate/3.2.1.ga/hibernate-3.2.1.ga-javadoc.jar!/" name="javadoc_location"/>

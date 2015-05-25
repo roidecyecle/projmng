@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<!-- Generated 27/03/2015 18:23:02 by Ekip Framework Released beta -->
+
+
+
+	<mapping wildcard="true" type="bi-directional" map-id="subjectDozer">
+		<class-a>com.linedata.projmng.bean.chiffrage.AuthorBean</class-a>
+		<class-b>com.linedata.projmng.commons.model.Author</class-b>
+		<field>
+			<a>id</a>
+			<b>id</b>
+		</field>
+		<field>
+			<a>name</a>
+			<b>name</b>
+		</field>
+		<field>
+			<a>function</a>
+			<b>function</b>
+		</field>
+	</mapping>
+
+</mappings>

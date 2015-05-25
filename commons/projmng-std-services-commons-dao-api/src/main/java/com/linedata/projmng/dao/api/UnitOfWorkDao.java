@@ -1,5 +1,7 @@
 package com.linedata.projmng.dao.api;
 
+import java.util.List;
+
 import com.linedata.projmng.commons.model.UnitOfWork;
 
 public interface UnitOfWorkDao {
@@ -9,5 +11,6 @@ public interface UnitOfWorkDao {
 	public boolean deleteUnitOfWork(long idUnit);
 	
 	public UnitOfWork getUnitOfWorkDetail(long idUnit);
+	public List<UnitOfWork> getAllUnitByEstimation(long idEstimation);
 	
 }

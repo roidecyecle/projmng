@@ -1,0 +1,7 @@
+com\linedata\projmng\service\api\chiffrage\UnitOfWorkService.class
+com\linedata\projmng\service\api\settings\ParametrageService.class
+com\linedata\projmng\service\api\chiffrage\EstimationService.class
+com\linedata\projmng\service\api\settings\SettingSubjectService.class
+com\linedata\projmng\service\api\settings\SettingAbacusService.class
+com\linedata\projmng\service\api\settings\SettingActionTypeService.class
+com\linedata\projmng\service\api\settings\SettingProductService.class

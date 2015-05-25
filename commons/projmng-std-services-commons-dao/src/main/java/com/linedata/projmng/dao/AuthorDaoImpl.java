@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,26 +29,29 @@ public class AuthorDaoImpl implements AuthorDao{
 
 	@Override
 	public boolean removeAuthor(long idAuthor) {
-		// TODO Auto-generated method stub
-		return false;
+		Author a = findAuthor(idAuthor);
+		em.remove(a);
+		return true;
 	}
 
 	@Override
 	public boolean updateAuthor(long idAuthor, Author author) {
-		// TODO Auto-generated method stub
-		return false;
+		Author a = findAuthor(idAuthor);
+		a.setAuthor(author);
+		return true;
 	}
 
 	@Override
 	public Author findAuthor(long idAuthor) {
-		// TODO Auto-generated method stub
-		return null;
+		Author a  = em.find(Author.class, idAuthor);
+		return a;
 	}
 
 	@Override
 	public List<Author> findAllAuthor() {
-		// TODO Auto-generated method stub
-		return null;
+		Query req=em.createQuery("select a from author a");
+		return req.getResultList();
+		
 	}
 
 	public EntityManager getEm() {

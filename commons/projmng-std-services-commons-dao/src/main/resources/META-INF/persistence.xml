@@ -18,17 +18,15 @@
       <class>com.linedata.projmng.commons.model.Abacus</class>
       
       
-      <properties>
-      	<property name="hibernate.show_sql" value="true"/>
-      	<property name="hibernate.hbm2ddl.auto" value="create"/>
-      	
+      <properties>    	
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+
         <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver" />
-        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@tn1orc03:1521:LDSTOOLS" />
+        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@phobos:1521:DEV040" />
         <property name="hibernate.connection.username" value="portal" />
         <property name="hibernate.connection.password" value="portal" />
+         <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
          
-         
-         <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9Dialect" />
      
       </properties>
    </persistence-unit>

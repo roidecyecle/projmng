@@ -21,30 +21,38 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
-
 @Entity
-@Table(name = "ESTIMATION")
+@Table(name = "ESTIMATION_PROJ")
 public class Estimation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7752391232972763938L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="E_DATE")
 	private Date date;
+	
 	private String label;
-	@Enumerated(EnumType.STRING)
+
+	@Enumerated(EnumType.STRING)	
 	private Status status;
-	@OneToMany(fetch=FetchType.EAGER,
+	
+	@OneToMany(fetch=FetchType.LAZY,
 			   targetEntity=UnitOfWork.class,
-			   mappedBy="estimation")
+			   mappedBy="estimation",
+			   cascade=CascadeType.ALL)
 	private Collection<UnitOfWork> unitsOfWork = new ArrayList<UnitOfWork>();
-	@ManyToOne
-	@JoinColumn(name="ID_SUBJECT")
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Subject subject;
-	@ManyToOne
-	@JoinColumn(name="ID_AUTOR")
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Author author;
 	
 
@@ -64,6 +72,8 @@ public class Estimation implements Serializable {
 		this.label = label;
 	}
 
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -72,15 +82,14 @@ public class Estimation implements Serializable {
 		this.id = id;
 	}
 
-	public String getlabel() {
+	public String getLabel() {
 		return label;
 	}
 
-	public void setLibelle(String label) {
+	public void setLabel(String label) {
 		this.label = label;
 	}
 
-	
 	public Collection<UnitOfWork> getUnitsOfWork() {
 		return unitsOfWork;
 	}
@@ -120,6 +129,13 @@ public class Estimation implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Estimation [id=" + id + ", date=" + date + ", label=" + label
+				+ ", status=" + status + ", subject=" + subject.getDescription() + ", author="
+				+ author.getName() + "]";
 	}
 
 

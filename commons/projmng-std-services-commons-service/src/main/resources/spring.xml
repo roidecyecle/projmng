@@ -13,20 +13,17 @@
 
 
 
-	<bean id="productdao" class="com.linedata.ekip.pos.crma.dao.crma.ProductDaoImpl"></bean>
-	<bean id="subjectdao" class="com.linedata.ekip.pos.crma.dao.crma.SubjectDaoImpl"></bean>
-	<bean id="authordao" class="com.linedata.ekip.pos.crma.dao.crma.AuthorDaoImpl"></bean>
-	<bean id="estimationdao" class="com.linedata.ekip.pos.crma.dao.crma.EstimationDaoImpl"></bean>
-	<bean id="unitofworkdao" class="com.linedata.ekip.pos.crma.dao.crma.UnitOfWorkDaoImpl"></bean>
-	<bean id="componentdao" class="com.linedata.ekip.pos.crma.dao.crma.ComponentDaoImpl"></bean>
-	<bean id="complexitydao" class="com.linedata.ekip.pos.crma.dao.crma.ComplexityDaoImpl"></bean>
-	<bean id="abacusdao" class="com.linedata.ekip.pos.crma.dao.crma.AbacusDaoImpl"></bean>
-	<bean id="actiontypedao" class="com.linedata.ekip.pos.crma.dao.crma.ActionTypeDaoImpl"></bean>
+	<bean id="productdao" class="com.linedata.projmng.dao.ProductDaoImpl"></bean>
+	<bean id="subjectdao" class="com.linedata.projmng.dao.SubjectDaoImpl"></bean>
+	<bean id="authordao" class="com.linedata.projmng.dao.AuthorDaoImpl"></bean>
+	<bean id="estimationdao" class="com.linedata.projmng.dao.EstimationDaoImpl"></bean>
+	<bean id="unitofworkdao" class="com.linedata.projmng.dao.UnitOfWorkDaoImpl"></bean>
+	<bean id="componentdao" class="com.linedata.projmng.dao.ComponentDaoImpl"></bean> 
+	<bean id="complexitydao" class="com.linedata.projmng.dao.ComplexityDaoImpl"></bean> 
+	<bean id="abacusdao" class="com.linedata.projmng.dao.AbacusDaoImpl"></bean>  
+	<bean id="actiontypedao" class="com.linedata.projmng.dao.ActionTypeDaoImpl"></bean>
 
-	<bean id="ChiffrageService"
-		class="com.linedata.ekip.pos.services.crma.service.impl.ChiffrageServiceImpl"></bean>
-	<bean id="ParametrageService"
-		class="com.linedata.ekip.pos.services.crma.service.impl.ParametrageServiceImpl"></bean>
+	
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

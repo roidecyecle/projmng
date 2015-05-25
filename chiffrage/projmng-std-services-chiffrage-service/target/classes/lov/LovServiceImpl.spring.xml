@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:spring/lov/lov.service-api.spring.xml" />
+	<import resource="classpath:spring/lov/data.service-api.spring.xml" />
+	<import resource="classpath:spring/lov/LovDao.spring.xml" />
+
+	<!-- LovService Dispatch -->
+	<!-- LovService Dispatch -->
+	<bean id="LovService"
+		class="com.linedata.ife.std.lov.service.impl.LovServiceImpl"
+		init-method="manageMap" />
+	<bean id="LovMapper" class="com.linedata.ekip.std.services.core.bean.BeanMapper">
+		<property name="mappingFiles">
+			<list>
+				<value>dozer/global.mapping.xml</value>
+				<value>dozer/lov.mapping.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+
+</beans>
+

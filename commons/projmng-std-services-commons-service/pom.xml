@@ -1,37 +1,44 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>com.linedata.projmng.std.services.commons.service</groupId>
-   <artifactId>projmng-std-services-commons-service</artifactId>
-   <packaging>jar</packaging>
-   <name>Commons Service : Service</name>
-   
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.linedata.projmng.std.services.commons.service</groupId>
+	<artifactId>projmng-std-services-commons-service</artifactId>
+	<packaging>jar</packaging>
+	<name>Commons Service : Service</name>
 
-   <parent>
-      <groupId>com.linedata.projmng.std.services.commons</groupId>
-      <artifactId>projmng-std-services-commons</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-   </parent>
-	
+
+	<parent>
+		<groupId>com.linedata.projmng.std.services.commons</groupId>
+		<artifactId>projmng-std-services-commons</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
 	<properties>
-      <framework.version>1.3.0M2</framework.version>
-	  <framework.application.version>1.3.0M2</framework.application.version>
-   </properties>
-   
-  <dependencies>
-   
+		<framework.version>1.3.0M2</framework.version>
+		<framework.application.version>1.3.0M2</framework.application.version>
+	</properties>
+
+	<dependencies>
+
 		<dependency>
 			<groupId>com.linedata.fwk360.services</groupId>
 			<artifactId>fwk360-services-core-service</artifactId>
 			<version>${framework.version}</version>
 		</dependency>
-      
 
-        <dependency>
+
+		<dependency>
 			<groupId>com.linedata.fwk360.commons</groupId>
 			<artifactId>fwk360-commons</artifactId>
 			<version>${framework.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.linedata.projmng.std.services.commons.service-api</groupId>
+			<artifactId>projmng-std-services-commons-service-api</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate</artifactId>

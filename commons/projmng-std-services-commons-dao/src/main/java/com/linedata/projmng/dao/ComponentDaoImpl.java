@@ -1,5 +1,7 @@
 package com.linedata.projmng.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -27,6 +29,24 @@ public class ComponentDaoImpl implements ComponentDao{
 
 	public void setEm(EntityManager em) {
 		this.em = em;
+	}
+
+	@Override
+	public void updateComponent(Component component) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeComponent(Component component) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Component> getAllComponents() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,0 +1,9 @@
+com\linedata\projmng\dao\api\AbacusDao.class
+com\linedata\projmng\dao\api\UnitOfWorkDao.class
+com\linedata\projmng\dao\api\ComplexityDao.class
+com\linedata\projmng\dao\api\EstimationDao.class
+com\linedata\projmng\dao\api\SubjectDao.class
+com\linedata\projmng\dao\api\ProductDao.class
+com\linedata\projmng\dao\api\AuthorDao.class
+com\linedata\projmng\dao\api\ComponentDao.class
+com\linedata\projmng\dao\api\ActionTypeDao.class

@@ -6,10 +6,12 @@ import com.linedata.projmng.commons.model.Product;
 
 public interface ProductDao {
 
-	public ProductDao addProduct(Product product);
-	public boolean removeProduct(long idProduct);
-	public boolean updatePoduct(long idProduct);
-	public ProductDao findProductByLabel(String label);
-	public List<ProductDao> findAllProduct();
+	public Product addProduct(Product product);
+	public void removeProduct(long idProduct);
+	public void updatePoduct(Product Product);
+	
 	public Product getProduct(long idProduct);
+	public List<Product> findAllProduct();
+	public List<Product> findAllProductByLabel(String label);
+	
 }

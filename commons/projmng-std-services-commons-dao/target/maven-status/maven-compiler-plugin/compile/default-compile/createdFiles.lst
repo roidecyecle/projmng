@@ -1,0 +1,11 @@
+com\linedata\projmng\dao\EstimationDaoImpl.class
+com\linedata\projmng\dao\ComponentDaoImpl.class
+com\linedata\projmng\dao\AuthorDaoImpl.class
+com\linedata\projmng\dao\UnitOfWorkDaoImpl.class
+com\linedata\projmng\dao\ActionTypeDaoImpl.class
+com\linedata\projmng\dao\SubjectDaoImpl.class
+com\linedata\projmng\dao\test.class
+com\linedata\projmng\dao\test2.class
+com\linedata\projmng\dao\ComplexityDaoImpl.class
+com\linedata\projmng\dao\ProductDaoImpl.class
+com\linedata\projmng\dao\AbacusDaoImpl.class

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx" 
+        xmlns:context="http://www.springframework.org/schema/context" 
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+    						http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+        					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+
+
+	<bean id="productdao" class="com.linedata.projmng.dao.ProductDaoImpl"></bean>
+	<bean id="subjectdao" class="com.linedata.projmng.dao.SubjectDaoImpl"></bean>
+	<bean id="authordao" class="com.linedata.projmng.dao.AuthorDaoImpl"></bean>
+	<bean id="estimationdao" class="com.linedata.projmng.dao.EstimationDaoImpl"></bean>
+	<bean id="unitofworkdao" class="com.linedata.projmng.dao.UnitOfWorkDaoImpl"></bean>
+	<bean id="componentdao" class="com.linedata.projmng.dao.ComponentDaoImpl"></bean> 
+	<bean id="complexitydao" class="com.linedata.projmng.dao.ComplexityDaoImpl"></bean> 
+	<bean id="abacusdao" class="com.linedata.projmng.dao.AbacusDaoImpl"></bean>  
+	<bean id="actiontypedao" class="com.linedata.projmng.dao.ActionTypeDaoImpl"></bean>
+	
+	
+
+<!-- 	<bean id="SettingAbacusService" class="com.linedata.projmng.service.settings.SettingAbacusServiceImpl"></bean> -->
+<!-- 	<bean id="SettingActionTypeService" class="com.linedata.projmng.service.settings.SettingActionTypeServiceImpl"></bean> -->
+<!-- 	<bean id="SettingProductSubjectService" class="com.linedata.projmng.service.settings.SettingProductSubjectServiceImpl"></bean> -->
+<!-- 	<bean id="ParametrageService" class="com.linedata.projmng.service.settings.ParametrageServiceImpl"></bean> -->
+	
+	
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@tn1orc03:1521:LDSTOOLS" />
+		<property name="username" value="portal" />
+		<property name="password" value="portal" />
+	</bean>
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="unitPer"></property>
+	</bean>  
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<context:annotation-config></context:annotation-config>
+	
+	<bean id="ChiffrageDetail" class="com.linedata.ekip.std.services.core.bean.BeanMapper">
+      <property name="mappingFiles">
+         <list>
+            <value>dozer/Chiffrage.mapping.xml</value>
+            <value>dozer/Subject.mapping.xml</value>
+            <value>dozer/Estimation.mapping.xml</value>
+         </list>
+      </property>
+   </bean>
+</beans>

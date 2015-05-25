@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<!-- LovDao -->
+	<bean id="LovDao"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="target" ref="LovServiceDaoTarget" />
+
+		<property name="transactionAttributeSource">
+			<bean
+				class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource" />
+		</property>
+	</bean>
+
+	<bean id="LovServiceDaoTarget"
+		class="com.linedata.ekip.std.services.lov.dao.impl.LovDaoImpl">
+		<!-- <property name="lovElementModelFactory" value="LovElementModelFactory"/> -->
+		<property name="frameworkJdbcTemplate" ref="ekipDaoTemplate" />
+		<property name="beanFactory" ref="LovElementModelFactory" />
+		<property name="sqlTypeCodeQuery">
+			<bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+				<constructor-arg type="java.io.InputStream"
+					value="classpath:sql/TypeCodeSelector.sql" />
+			</bean>
+		</property>
+		<property name="sqlListOfValueQuery">
+			<map>
+				<entry key="withAttributeLovQuery">
+					<bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+						<constructor-arg type="java.io.InputStream"
+							value="classpath:sql/WithAttributeLovQuery.sql" />
+					</bean>
+				</entry>
+				<entry key="simpleLovQuery">
+					<bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+						<constructor-arg type="java.io.InputStream"
+							value="classpath:sql/SimpleLovQuery.sql" />
+					</bean>
+				</entry><!--
+				<entry key="constraintLovQuery">
+					<bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+						<constructor-arg type="java.io.InputStream"
+							value="classpath:sql/ConstraintLovQuery.sql" />
+					</bean>
+				</entry>
+				<entry key="FreeAccountTypeLovQuery">
+					<bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+						<constructor-arg type="java.io.InputStream"
+							value="classpath:sql/FreeAccountTypeLovQuery.sql" />
+					</bean>
+				</entry>
+			--></map>
+		</property>
+	</bean>
+
+	<bean id="LovElementModelFactory"
+		class="com.linedata.ekip.std.services.lov.model.factory.LovElementModelFactory">
+		<property name="className"
+			value="com.linedata.ekip.std.services.lov.model.impl.LovElementModelImpl" />
+	</bean>
+</beans>

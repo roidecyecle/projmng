@@ -1,5 +1,7 @@
 package com.linedata.projmng.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -28,6 +30,24 @@ public class ComplexityDaoImpl implements ComplexityDao{
 
 	public void setEm(EntityManager em) {
 		this.em = em;
+	}
+
+	@Override
+	public Complexity updateComplexity(Complexity complexity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Complexity removeComplexity(Complexity complexity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Complexity> getAllComplexities() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -12,9 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AUTHOR")
+@Table(name="AUTHOR_PROJECT")
 public class Author implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6432258174151475737L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -23,7 +27,10 @@ public class Author implements Serializable{
 	@OneToMany(mappedBy="author",fetch=FetchType.LAZY)
 	private Collection<Estimation> estimation;
 	
-	
+	public void setAuthor(Author a){
+		this.name = a.getName();
+		this.function = a.getFunction();
+	}
 	
 	public long getId() {
 		return id;

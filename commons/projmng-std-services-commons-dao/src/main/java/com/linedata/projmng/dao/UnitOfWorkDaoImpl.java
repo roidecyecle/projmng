@@ -1,7 +1,10 @@
 package com.linedata.projmng.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +31,7 @@ public class UnitOfWorkDaoImpl implements UnitOfWorkDao{
 		unit.setActionType(action);
 		unit.setAbacus(abacus);
 		em.persist(unit);
+		em.flush();
 		return unit;
 	}
 
@@ -51,8 +55,8 @@ public class UnitOfWorkDaoImpl implements UnitOfWorkDao{
 
 	@Override
 	public boolean deleteUnitOfWork(long idUnit) {
-		UnitOfWork unit = em.find(UnitOfWork.class, idUnit);
-		
+		UnitOfWork unit = getUnitOfWorkDetail(idUnit);
+		em.merge(unit);
 		em.remove(unit);
 		
 		return true;
@@ -62,6 +66,13 @@ public class UnitOfWorkDaoImpl implements UnitOfWorkDao{
 	public UnitOfWork getUnitOfWorkDetail(long idUnitOfWork) {
 		UnitOfWork unit = em.find(UnitOfWork.class, idUnitOfWork);
 		return unit;
+	}
+
+	@Override
+	public List<UnitOfWork> getAllUnitByEstimation(long idEstimation) {
+		Query req=em.createQuery("select u from UnitOfWork u where u.estimation.id = :x");
+		req.setParameter("x",idEstimation);
+		return req.getResultList();
 	}
 
 }
